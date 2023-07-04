@@ -1,0 +1,1 @@
+ # Explanation and examples of methods of java stream structure
