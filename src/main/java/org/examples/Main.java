@@ -2,6 +2,8 @@ package org.examples;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -40,6 +42,7 @@ public class Main {
 
         //********************************************************************
 
+
         //Now, let's find the sum of the ages of the employees whose names start with the letter "M" by using the map and sum functions provided by the stream library.
         //There are two employees whose names start with the letter "M" and their ages add up to 51.
         System.out.println( employees.stream()
@@ -48,10 +51,27 @@ public class Main {
                 // we have brought the ages in this step, now the stream structure will return only int values at this stage.
 
 
-                .reduce(0,(sum, age) ->sum+age )); //At this stage, we gave our initial value 0 with the reduce method and we have two values,
+                .reduce(0,(sum, age) ->sum+age ) +"\n"); //At this stage, we gave our initial value 0 with the reduce method and we have two values,
                                                             // we added these values, but this process should not be perceived as working for only 2 values,
                                                             // if there were more than 2 values in this structure, it would add to the sum variable.
                                                              //  Here is the method reference state of this structure reduce(0, Integer::sum);
+
+
+        //Let's print the worker who is older among the registered workers on the screen.
+
+        System.out.println(employees.stream().max(((tempEmployee, tempEmployee2) -> tempEmployee.getAge()>tempEmployee2.getAge()? 1:-1)).get()+"\n");
+
+        //Let's print the youngest worker on the screen among the registered workers.
+
+        System.out.println(employees.stream().min(((tempEmployee, tempEmployee2) -> tempEmployee.getAge()>tempEmployee2.getAge()? 1:-1)).get()+"\n");
+
+        //Let's look at the use of the "skip()" method to skip the first n presence on the list and press the remaining assets on the screen.
+        System.out.println( employees.stream().skip(2).toList() +"\n");
+
+
+        //Another function, "noneMatch()" function will examine the function when this function does not match the value of true to us.
+        System.out.println(employees.stream().noneMatch(employee -> employee.getName().equals("Onur"))+"\n");
+
     }
 }
 
