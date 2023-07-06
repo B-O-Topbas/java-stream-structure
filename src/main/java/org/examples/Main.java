@@ -2,6 +2,7 @@ package org.examples;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -71,6 +72,12 @@ public class Main {
 
         //Another function, "noneMatch()" function will examine the function when this function does not match the value of true to us.
         System.out.println(employees.stream().noneMatch(employee -> employee.getName().equals("Onur"))+"\n");
+
+        Map<Integer,String> employeesMap=employees.stream()
+                .collect(Collectors.toMap(Employee::getIdentityNumber,Employee::getName));
+        for (Map.Entry<Integer,String> entry:employeesMap.entrySet()){
+            System.out.println(entry.getKey()+":"+entry.getValue());
+        }
 
     }
 }

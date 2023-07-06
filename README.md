@@ -168,3 +168,14 @@
 </tr>
 </tbody></table>
 </div>
+<div align="center">
+<h2>The sample codes of some of the above stream functions are as follows.</h2>
+</div>
+<div align="left">
+<br>
+<h5>1) First, let's examine the function of the filter() method.<br></h5>
+<h6>As you can see in the picture below, there are three worker objects of the "Employee" class and we keep these objects in an array list structure.</h6>
+<image src="src/main/resources/images/img.png"><br></image>
+<h6>Now, let's print the employee whose age is over thirty from the employee objects stored in this array list structure.<br></h6>
+<image src="src/main/resources/images/filter.png"></image>
+</div>
